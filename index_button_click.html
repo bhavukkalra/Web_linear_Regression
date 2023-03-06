@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dynamic Table</title>
+	<style>
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+		th, td {
+			padding: 10px;
+		}
+		th {
+			background-color: #ccc;
+		}
+		.button {
+			padding: 5px 10px;
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			margin: 5px;
+		}
+		.button:hover {
+			background-color: #3e8e41;
+		}
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Dynamic Table</h1>
+		<button class="button" onclick="addRow()">Add Row</button>
+		<button class="button" onclick="addColumn()">Add Column</button>
+		<table id="table">
+			<thead>
+				<tr>
+					<th>Header 1</th>
+					<th>Header 2</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Row 1, Column 1</td>
+					<td>Row 1, Column 2</td>
+				</tr>
+				<tr>
+					<td>Row 2, Column 1</td>
+					<td>Row 2, Column 2</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<script>
+		function addRow() {
+			var table = document.getElementById("table");
+			var tbody = table.getElementsByTagName("tbody")[0];
+
+			var newRow = document.createElement("tr");
+			for (var i = 0; i < table.rows[0].cells.length; i++) {
+				var cell = document.createElement("td");
+				cell.innerHTML = "New Row, Column " + (i+1);
+				newRow.appendChild(cell);
+			}
+			tbody.appendChild(newRow);
+		}
+
+		function addColumn() {
+			var table = document.getElementById("table");
+
+			for (var i = 0; i < table.rows.length; i++) {
+				var cell = document.createElement("td");
+				cell.innerHTML = "New Column";
+				table.rows[i].appendChild(cell);
+			}
+		}
+	</script>
+</body>
+</html>
