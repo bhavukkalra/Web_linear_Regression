@@ -1,0 +1,6 @@
+TODO
+
+Decide on what the app should look like 
+
+- User will enter the Number of Cols and Rows of Input
+- User will give some data
