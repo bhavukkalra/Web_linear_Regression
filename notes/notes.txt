@@ -2,5 +2,24 @@ TODO
 
 Decide on what the app should look like 
 
-- User will enter the Number of Cols and Rows of Input
-- User will give some data
+- User will enter the Number of Cols and Rows of Input - Maybe for future versions 
+- User will give some data - [For Now restrict it to - 2 variable input, 1 independent and 1 dependent]
+- User can add the number of rows for input
+- Two seperate sections for train and test output
+- Also add input for custom input for getting the output from the model
+
+
+
+TODO
+- First create a model, in jupyter notebook and discuss a deploying strategy - TODO
+Done
+
+- Model Created
+- deploying strategy, If components with various tech stack - Docker(Heroku)
+- Else  Frontent Facing application, Deployed on Github pages
+
+
+
+
+- Most probably go with the containerization approach
+- 

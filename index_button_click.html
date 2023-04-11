@@ -36,22 +36,23 @@
 	<div class="container">
 		<h1>Dynamic Table</h1>
 		<button class="button" onclick="addRow()">Add Row</button>
-		<button class="button" onclick="addColumn()">Add Column</button>
+		<!-- <button class="button" onclick="addColumn()">Add Column</button> -->
 		<table id="table">
 			<thead>
 				<tr>
-					<th>Header 1</th>
-					<th>Header 2</th>
+					<th>Hours Studied</th>
+					<th>Performance</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td>Row 1, Column 1</td>
-					<td>Row 1, Column 2</td>
+					<td><input type="text" placeholder="5"></td>
+					<td><input type="text" placeholder="-0.5"></td>
+
 				</tr>
 				<tr>
-					<td>Row 2, Column 1</td>
-					<td>Row 2, Column 2</td>
+					<td><input type="text" placeholder="60"></td>
+					<td><input type="text" placeholder="10"></td>
 				</tr>
 			</tbody>
 		</table>
@@ -63,23 +64,41 @@
 			var tbody = table.getElementsByTagName("tbody")[0];
 
 			var newRow = document.createElement("tr");
+			console.log("table", table)
+			console.log("tbody", tbody)
+			console.log("table.rows[0]", table.rows[0])
+			console.log("table.rows[0].cells", table.rows[0].cells) // HTML Collection (Containing 2 rows)
+			console.log("table.rows[0].cells.length", table.rows[0].cells.length) // the number 2 
+			// console.log("table", table)
+
+
 			for (var i = 0; i < table.rows[0].cells.length; i++) {
 				var cell = document.createElement("td");
-				cell.innerHTML = "New Row, Column " + (i+1);
+				var input_cell = document.createElement("input");
+				
+				input_cell.setAttribute("type", "text")
+				input_cell.setAttribute("placeholder", "Enter Value Here")
+
+				
+
+
+				cell.appendChild(input_cell)
+
+				// cell.innerHTML = "New Row, Column " + (i+1);
 				newRow.appendChild(cell);
 			}
 			tbody.appendChild(newRow);
 		}
 
-		function addColumn() {
-			var table = document.getElementById("table");
+		// function addColumn() {
+		// 	var table = document.getElementById("table");
 
-			for (var i = 0; i < table.rows.length; i++) {
-				var cell = document.createElement("td");
-				cell.innerHTML = "New Column";
-				table.rows[i].appendChild(cell);
-			}
-		}
+		// 	for (var i = 0; i < table.rows.length; i++) {
+		// 		var cell = document.createElement("td");
+		// 		cell.innerHTML = "New Column";
+		// 		table.rows[i].appendChild(cell);
+		// 	}
+		// }
 	</script>
 </body>
 </html>
