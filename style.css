@@ -1,0 +1,28 @@
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px;
+}
+th {
+    background-color: #ccc;
+}
+.button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+.button:hover {
+    background-color: #3e8e41;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
