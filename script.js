@@ -1,117 +1,173 @@
+/*
+Default - 2
+Global and can be accessed by any functions
+*/
+let numRows = 2;
+
+
 
 function createTable() {
-console.log("Inside createTable")
+    let NumberRowsInput = document.getElementById("rows").value;
+    console.log("NumberRowsInput", NumberRowsInput);
 
-var rows = document.getElementById("rows").value;
-// var columns = document.getElementById("columns").value;
+    numRows = NumberRowsInput;
+    renderTable();
 
-// var table = document.createElement("table");
-let table = document.getElementById("table")
-var thead = document.createElement("thead");
-var tbody = document.createElement("tbody");
 
-// create table header row
-// var headerRow = document.createElement("tr");
-// for (var i = 0; i < columns; i++) {
-// 	var th = document.createElement("th");
-// 	th.innerHTML = "Header " + (i+1);
-// 	headerRow.appendChild(th);
+
+// console.log("Inside createTable");
+
+// var rows = document.getElementById("rows").value;
+// // var columns = document.getElementById("columns").value;
+
+// // var table = document.createElement("table");
+// let table = document.getElementById("table")
+// var thead = document.createElement("thead");
+// var tbody = document.createElement("tbody");
+
+// // create table header row
+// // var headerRow = document.createElement("tr");
+// // for (var i = 0; i < columns; i++) {
+// // 	var th = document.createElement("th");
+// // 	th.innerHTML = "Header " + (i+1);
+// // 	headerRow.appendChild(th);
+// // }
+// // thead.appendChild(headerRow);tbody
+// // table.appendChild(thead);
+
+// // create table data rows
+// if(rows < 2){
+//     let formErrorElement = document.getElementById("formError");
+//     formErrorElement.innerHTML = "Please enter an Input > 2";
+//     return;
+
+// }else if(rows == 2){
+//     let formErrorElement = document.getElementById("formError");
+//     formErrorElement.innerHTML = "2 rows already exists";
+//     return;
+
 // }
-// thead.appendChild(headerRow);tbody
-// table.appendChild(thead);
 
-// create table data rows
-if(rows < 2){
-    let formErrorElement = document.getElementById("formError");
-    formErrorElement.innerHTML = "Please enter an Input > 2";
-    return;
+// console.log("After Error");
 
-}else if(rows == 2){
-    let formErrorElement = document.getElementById("formError");
-    formErrorElement.innerHTML = "2 rows already exists";
-    return;
+// for (var i = 0; i < rows - 2; i++) {
+//     var tr = document.createElement("tr");
+//     // Add Data for Hours studied
+//     let inputElementHour = document.createElement("input");
+//     let tableDataElementHour = document.createElement("td");
 
-}
-
-console.log("After Error");
-
-for (var i = 0; i < rows - 2; i++) {
-    var tr = document.createElement("tr");
-    // Add Data for Hours studied
-    let inputElementHour = document.createElement("input");
-    let tableDataElementHour = document.createElement("td");
-
-    inputElementHour.setAttribute("type", "text")
-    inputElementHour.setAttribute("placeholder", "Enter Hours Studied Here")
+//     inputElementHour.setAttribute("type", "text")
+//     inputElementHour.setAttribute("placeholder", "Enter Hours Studied Here")
 
 
-    tableDataElementHour.appendChild(inputElementHour)
+//     tableDataElementHour.appendChild(inputElementHour)
 
 
 
-    // <td><input type="text" placeholder="5"></td>
+//     // <td><input type="text" placeholder="5"></td>
 
 
-    // Add data for performace
+//     // Add data for performace
 
-    let inputElementPerf = document.createElement("input");
-    let tableDataElementPerf = document.createElement("td");
+//     let inputElementPerf = document.createElement("input");
+//     let tableDataElementPerf = document.createElement("td");
 
-    inputElementPerf.setAttribute("type", "text")
-    inputElementPerf.setAttribute("placeholder", "Enter Performance value Here")
+//     inputElementPerf.setAttribute("type", "text")
+//     inputElementPerf.setAttribute("placeholder", "Enter Performance value Here")
 
-    tableDataElementPerf.appendChild(inputElementPerf)
+//     tableDataElementPerf.appendChild(inputElementPerf)
 
-    // tableDataElement.appendChild(inputElement)
+//     // tableDataElement.appendChild(inputElement)
 
-    // Add both the table dat to data row
-    tr.appendChild(tableDataElementHour)
-    tr.appendChild(tableDataElementPerf)
+//     // Add both the table dat to data row
+//     tr.appendChild(tableDataElementHour)
+//     tr.appendChild(tableDataElementPerf)
 
-    // Add both the tabe rows to table body
+//     // Add both the tabe rows to table body
 
-    tbody.appendChild(tr)
+//     tbody.appendChild(tr)
 
 
-}
-table.appendChild(tbody);
+// }
+// table.appendChild(tbody);
 
-// add table to container
-// var container = document.getElementById("table-container");
-// container.innerHTML = "";
-// container.appendChild(table);
+// // add table to container
+// // var container = document.getElementById("table-container");
+// // container.innerHTML = "";
+// // container.appendChild(table);
 }
 
 function addRow() {
-var table = document.getElementById("table");
-var tbody = table.getElementsByTagName("tbody")[0];
-
-var newRow = document.createElement("tr");
-console.log("table", table)
-console.log("tbody", tbody)
-console.log("table.rows[0]", table.rows[0])
-console.log("table.rows[0].cells", table.rows[0].cells) // HTML Collection (Containing 2 rows)
-console.log("table.rows[0].cells.length", table.rows[0].cells.length) // the number 2 
-// console.log("table", table)
+    numRows++;
+    console.log("numRows", numRows);
+    renderTable();
 
 
-for (var i = 0; i < table.rows[0].cells.length; i++) {
-    var cell = document.createElement("td");
-    var input_cell = document.createElement("input");
-    
-    input_cell.setAttribute("type", "text")
-    input_cell.setAttribute("placeholder", "Enter Value Here")
-
-    
-
-
-    cell.appendChild(input_cell)
-
-    // cell.innerHTML = "New Row, Column " + (i+1);
-    newRow.appendChild(cell);
 }
-tbody.appendChild(newRow);
+
+function renderTable(){
+    console.log("Here")
+
+    let table = document.getElementById("table");
+    let tbody = document.getElementsByTagName("tbody")[0];
+    console.log("tbody before", tbody)
+
+
+
+    console.log("table", table)
+    console.log("tbody", tbody)
+    
+    // let tbody = table.getElementsByTagName("tbody")[0];
+
+
+    let currentNumRows = document.getElementsByTagName("tr").length - 1;
+    console.log("currentNumRows", currentNumRows);
+    console.log("numRows", numRows);
+
+    
+    for (let i = currentNumRows; i < numRows; i++) {
+        // Create New row for each entry
+        let newRow = document.createElement("tr");
+        console.log(newRow)
+
+        // Add Data for Hours studied
+        let inputElementHour = document.createElement("input");
+        let tableDataElementHour = document.createElement("td");
+        
+        // Add Input elements tags
+        inputElementHour.setAttribute("type", "text")
+        inputElementHour.setAttribute("placeholder", "Enter Hours Studied Here")
+    
+        // insert input element inside table element
+        tableDataElementHour.appendChild(inputElementHour);
+    
+        
+        let inputElementPerf = document.createElement("input");
+        let tableDataElementPerf = document.createElement("td");
+    
+        inputElementPerf.setAttribute("type", "text")
+        inputElementPerf.setAttribute("placeholder", "Enter Performance value Here")
+    
+        tableDataElementPerf.appendChild(inputElementPerf)
+    
+    
+        // Add both the table dat to data row
+        newRow.appendChild(tableDataElementHour)
+        newRow.appendChild(tableDataElementPerf)
+
+        console.log("newRow -- ", newRow)
+    
+        // Add both the tabe rows to table body
+        tbody.appendChild(newRow);
+    
+        
+    }
+    
+    console.log("tbody latest", tbody)
+    
+
 }
+
 
 // function addColumn() {
 // 	var table = document.getElementById("table");

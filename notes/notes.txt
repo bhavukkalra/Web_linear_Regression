@@ -23,3 +23,14 @@ Done
 
 - Most probably go with the containerization approach
 - 
+
+-----------------------------------------------------------------------------------------------------------
+Render page function
+- Render only what was added (Not the whole DOM)
+
+
+- Do rendering of the other added elements (total rows - 2) => Render
+- Single Table rendering function
+- Have 2 base elements 
+- Build on those 2 elements
+- 
