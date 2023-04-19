@@ -6,7 +6,13 @@
 
 </head>
 <body>
+	<!-- <script type="module" src="linear_regression.js"></script>  -->
+	<!-- <script src="script.js"></script> -->
+
+
 	<div class="container">
+		<button style="padding: 30 30 30 30;" onclick="runMain()">TEST BUTTON</button>
+
 		<h1>Use Either the form or the Add row button to create the desired tables</h1>
 
 
@@ -51,9 +57,26 @@
 
 	<canvas id="myChart"></canvas>
 
+	<!-- <script src="script.js"></script> -->
+
+<!-- <script type="module" src="./script2.js"></script> -->
+
+<script type="module" src="linear_regression.js"></script>
+	
+	<!-- eventMethods don't get triggered inside a "Module"-->
+	<script>
+
+	function runMain(){
+		console.log("Run main through outside of module");
+	}
+		
+		
+		
+	
+	</script>
 
 </body>
-<script src="script.js"></script>
+
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
