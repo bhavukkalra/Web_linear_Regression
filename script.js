@@ -3,6 +3,8 @@ Default - 2
 Global and can be accessed by any functions
 */
 let numRows = 2;
+let XHoursVals = []
+let YPerfVals = []
 
 
 function createTable() {
@@ -53,6 +55,7 @@ function renderTable(){
         // Add Input elements tags
         inputElementHour.setAttribute("type", "text")
         inputElementHour.setAttribute("placeholder", "Enter Hours Studied Here")
+        inputElementHour.setAttribute("name", "hoursVal")
     
         // insert input element inside table element
         tableDataElementHour.appendChild(inputElementHour);
@@ -63,7 +66,9 @@ function renderTable(){
     
         inputElementPerf.setAttribute("type", "text")
         inputElementPerf.setAttribute("placeholder", "Enter Performance value Here")
-    
+        inputElementPerf.setAttribute("name", "perfVal")
+
+
         tableDataElementPerf.appendChild(inputElementPerf)
     
     
@@ -80,5 +85,55 @@ function renderTable(){
     
     console.log("tbody latest", tbody)
     
+
+}
+
+function testKeysInputTable(){
+    let hoursArray = document.getElementsByName("hoursVal")
+    let perfArray = document.getElementsByName("perfVal")
+
+    console.log(hoursArray)
+    console.log(perfArray)
+
+
+    // Fill the input X array
+    for(let i = 0; i < hoursArray.length; i++){
+        
+        let currVal = hoursArray[i].value;
+        if(currVal == ""){
+            console.log("Can't do it ");
+            alert("Some of the Fields are missing, Please Fill all")
+            return;
+        }
+
+
+        XHoursVals.push(currVal);
+        console.log("currVal", currVal)
+
+
+    }
+
+    // Fill the input Y array
+    for(let y = 0; y < perfArray.length; y++){
+        let currVal = perfArray[y].value;
+
+        if(currVal == ""){
+            console.log("Can't do it ")
+            alert("Some of the Fields are missing, Please Fill all")
+
+            return;
+        }
+
+        YPerfVals.push(currVal);
+        // console.log(currVal)
+
+
+    }
+
+    console.log("XHoursVals", XHoursVals)
+    console.log("YPerfVals", YPerfVals)
+
+
+
 
 }

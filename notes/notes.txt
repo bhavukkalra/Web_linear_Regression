@@ -39,3 +39,24 @@ Render page function
 Use the type="module" attribute in your HTML file: In your HTML file, add the type="module" attribute to the 
 script tag that references your JavaScript files. This tells the browser that the script should be treated as a module a
 nd allows you to use ECMAScript modules (ESM) features like import and export statements.
+
+TODO
+
+- Event methods such as "onClick" don't get triggered if defined inside a script with a module tag.
+
+It only works when they are defined inside simple script tags
+
+[haven't been able to find out the reason for this]
+------------------------------
+4/19/23
+
+Maybe not Implement the Linear Regression logic in Javascript from scratch and 
+reuse the python expose with a rest API (Deploy as a docker container, to heroku)
+(But will take more time)
+
+- As a first target deploy using only Github pages 
+
+
+and order RaspBerry PI
+
+-----------------
