@@ -2,9 +2,28 @@
 Default - 2
 Global and can be accessed by any functions
 */
+
+/*
+No Imports can be utilized in 
+this script
+[IMP]
+
+- All the functionalities has to be exported - Export also requires 
+- module characteristics
+- or Defined here - We can't define everything
+- Take the Input from the Screen - TODO
+
+
+*/
 let numRows = 2;
 let XHoursVals = []
 let YPerfVals = []
+
+
+
+// import {runMain} from './linear_regression.js'
+
+// import {runMain} from 'linear_regression.js'
 
 
 function createTable() {
@@ -85,55 +104,5 @@ function renderTable(){
     
     console.log("tbody latest", tbody)
     
-
-}
-
-function testKeysInputTable(){
-    let hoursArray = document.getElementsByName("hoursVal")
-    let perfArray = document.getElementsByName("perfVal")
-
-    console.log(hoursArray)
-    console.log(perfArray)
-
-
-    // Fill the input X array
-    for(let i = 0; i < hoursArray.length; i++){
-        
-        let currVal = hoursArray[i].value;
-        if(currVal == ""){
-            console.log("Can't do it ");
-            alert("Some of the Fields are missing, Please Fill all")
-            return;
-        }
-
-
-        XHoursVals.push(currVal);
-        console.log("currVal", currVal)
-
-
-    }
-
-    // Fill the input Y array
-    for(let y = 0; y < perfArray.length; y++){
-        let currVal = perfArray[y].value;
-
-        if(currVal == ""){
-            console.log("Can't do it ")
-            alert("Some of the Fields are missing, Please Fill all")
-
-            return;
-        }
-
-        YPerfVals.push(currVal);
-        // console.log(currVal)
-
-
-    }
-
-    console.log("XHoursVals", XHoursVals)
-    console.log("YPerfVals", YPerfVals)
-
-
-
 
 }

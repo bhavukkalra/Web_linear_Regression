@@ -28,16 +28,18 @@ Standardization - Makes mean = 0 and standard deviation = 1
 // }
 import { calculateMean } from "./script2.js";
 	
-const XHoursStudied = [2, 3, 4, 5, -10];
-const YPerformance = [0.1, 0.4, 0.6, 0.7];
+// const XHoursStudied = [2, 3, 4, 5, -10];
+// const YPerformance = [0.1, 0.4, 0.6, 0.7];
 // console.log(calculateMean)
 
-let answer = calculateMean(XHoursStudied);
 
-console.log(answer);
 
-function runMain(){
-    console.log("Run On main")
+// console.log(answer);
+
+export function runMain(){
+    console.log("Run On main");
+    let answer = calculateMean(XHoursStudied);
+    console.log(answer);
 }
 
 // calculateMean(XHoursStudied);

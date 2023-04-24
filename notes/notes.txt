@@ -60,3 +60,53 @@ reuse the python expose with a rest API (Deploy as a docker container, to heroku
 and order RaspBerry PI
 
 -----------------
+
+You can't make imports and exports work on the frontend level
+for that you require a server environment - 
+Link - https://www.digitalocean.com/community/tutorials/understanding-modules-and-import-and-export-statements-in-javascript
+
+I might be a bit in accurate on this one maybe you can make it work
+
+
+
+<!-- index.html -->
+
+<script type="module">
+  // Define a JavaScript module
+  const myFunction = () => {
+    console.log("Hello from myFunction!");
+  };
+
+  // Export the function to be used in other modules
+  export { myFunction };
+</script>
+
+// main.js
+
+// Import the function from the module
+import { myFunction } from './index.js';
+
+// Call the imported function
+myFunction()
+
+
+<!-- index.html -->
+
+<script type="module">
+  // Import the function from the module
+  import { myFunction } from './main.js';
+
+  // Attach an event listener to a button element
+  document.querySelector('#myButton').addEventListener('click', () => {
+    // Call the imported function when the button is clicked
+    myFunction();
+  });
+</script>
+
+<button id="myButton">Click me</button>
+
+
+USING QUERY SELECTOR - 
+
+
+-------------------------------------------------------

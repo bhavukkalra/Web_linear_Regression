@@ -55,7 +55,18 @@
 			
 			
 		</table>
-		<input type="button" value="Create Table" onclick="testKeysInputTable()">
+		<br><br>
+		<input type="button" value="Create Table" onclick="testKeysInputTable()"> <br><br>
+		<input type="button" value="Run on Click" onclick="runOnClick()"> <br><br>
+
+    
+
+
+	</div>
+
+	<div id="arrayOutput">
+		<h3>Input XHoursArray Array - <span id="XHoursArray"></span> </h3>
+		<h3>Input YPerfArray Array - <span id="YPerfArray"></span></h3>
 
 
 	</div>
@@ -66,12 +77,109 @@
 	<!-- <script src="script.js"></script> -->
 
 <!-- <script type="module" src="./script2.js"></script> -->
-<script src="script.js"></script>
 
-<script type="module" src="linear_regression.js"></script>
+	<script src="script.js"></script>
+
+	<script type="module" src="./test_module_start.js"></script>
+	<script type="module" src="./checkImport.js"></script>
+	<script  >
+    function runOnClick(){
+      console.log("Defined in the same context as of runOnClick")
+    }
+
+
+
+  </script>
+
+
+
+
+
+
+	<script>
+    // import {exportThisMain} from './test_module_start.js'
+
+		function testKeysInputTable(){
+    // With new input, Empty the previous one
+    if(XHoursVals.length != 0 || YPerfVals.length != 0){
+        XHoursVals = []
+        YPerfVals = []
+    }
+
+    let hoursArray = document.getElementsByName("hoursVal")
+    let perfArray = document.getElementsByName("perfVal")
+
+    console.log(hoursArray)
+    console.log(perfArray)
+
+
+    // Fill the input X array
+    for(let i = 0; i < hoursArray.length; i++){
+        
+        let currVal = hoursArray[i].value;
+        if(currVal == ""){
+            console.log("Can't do it ");
+            alert("Some of the Fields are missing, Please Fill all")
+            return;
+        }
+
+
+        XHoursVals.push(currVal);
+        console.log("currVal", currVal)
+
+
+    }
+
+    // Fill the input Y array
+    for(let y = 0; y < perfArray.length; y++){
+        let currVal = perfArray[y].value;
+
+        if(currVal == ""){
+            console.log("Can't do it ")
+            alert("Some of the Fields are missing, Please Fill all");
+
+            return;
+        }
+
+        YPerfVals.push(currVal);
+        // console.log(currVal)
+    }
+
+    console.log("XHoursVals", XHoursVals);
+    console.log("YPerfVals", YPerfVals);
+
+    // Defined in the main file but ran here
+    // (Also worked)
+    // runMain();
+    console.log("sfdsfsadf")
+
+    // As soon as you get the input invoke another function 
+    // to do the calculations
+
+    // There should be a connecting function here
+    // 
+
+    let spanHTMLElementHour = document.getElementById("XHoursArray");
+    spanHTMLElementHour.innerHTML = XHoursVals;
+
+    let spanHTMLElementPerf = document.getElementById("YPerfArray");
+    spanHTMLElementPerf.innerHTML = YPerfVals;
+
+	// Import this from a module that takes two inputs
+    // exportThisMain();
+    // NameThisMain();
+
+
+
+
+}
+
+	</script>
+
+	<!-- <script type="module" src="linear_regression.js"></script> -->
 	
 	<!-- eventMethods don't get triggered inside a "Module"-->
-	<script>
+	<!-- <script>
 
 	function runMain(){
 		console.log("Run main through outside of module");
@@ -80,12 +188,20 @@
 		
 		
 	
-	</script>
+	</script> -->
 
 </body>
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- <script type="module" src="linear_regression.js"></script> -->
+<!-- <script src="./module1.js"></script> -->
+<!-- <script>
+
+	greet("fsdaf");
+
+</script> -->
 <script>
 	console.log("Inside the chartjs script")
     var ctx = document.getElementById('myChart').getContext('2d');
