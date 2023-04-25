@@ -16,8 +16,7 @@ this script
 
 */
 let numRows = 2;
-let XHoursVals = []
-let YPerfVals = []
+
 
 
 
