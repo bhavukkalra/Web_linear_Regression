@@ -103,6 +103,8 @@ function takeInput(){
     let spanHTMLElementPerf = document.getElementById("YPerfArray");
     spanHTMLElementPerf.innerHTML = YPerfVals;
 
+    calculateMean(XHoursVals)
+
 }
 
 
