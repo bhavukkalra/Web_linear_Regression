@@ -48,6 +48,7 @@ function renderTable(){
     let table = document.getElementById("table");
     let tbody = document.getElementsByTagName("tbody")[0];
     console.log("tbody before", tbody)
+    document.querySelector("ekeme").addEventListener
 
 
 
