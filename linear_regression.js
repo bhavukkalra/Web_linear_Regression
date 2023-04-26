@@ -23,7 +23,7 @@ Standardization - Makes mean = 0 and standard deviation = 1
 // Task 2 (Pre) - handle Taking input from the Whole Table
 // Task 2 - Calculate standard deviation
 
-import { calculateMean } from "./helpherFunctions.js";
+import { calculateMean, calculateStandardDeviation } from "./helpherFunctions.js";
 
 
 let XHoursVals = []
@@ -88,8 +88,24 @@ function takeInput(){
         // console.log(currVal)
     }
 
+    /*
+        characters container numbers [Array]
+        Convert them to numbers
+    */
     console.log("XHoursVals", XHoursVals);
     console.log("YPerfVals", YPerfVals);
+
+    let XHoursValsNum = []
+    let YPerfValsNum = []
+
+    for(let i = 0; i < XHoursVals.length; i++){
+        XHoursValsNum.push(XHoursVals[i] * 1);
+        YPerfValsNum.push(YPerfVals[i] * 1);
+
+    }
+
+    
+
 
 
     /*
@@ -103,7 +119,9 @@ function takeInput(){
     let spanHTMLElementPerf = document.getElementById("YPerfArray");
     spanHTMLElementPerf.innerHTML = YPerfVals;
 
-    calculateMean(XHoursVals)
+    // calculateMean(XHoursVals);
+    console.log("Operating on - ", XHoursValsNum)
+    calculateStandardDeviation(XHoursValsNum);
 
 }
 
