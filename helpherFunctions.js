@@ -92,6 +92,30 @@ export function calSqrRootBabylonianFormula(inputNumber){
     return root;
 }
 
+/*
+    Makes Mean = 0, std = 1
+    Formula - (x - mean)/(std)
+
+    Used on the Input features only(X)
+
+*/
+
+export function standardizeInputArray(inputArrayNums){
+    let standardizedArray = []
+
+    let meanOfArray = calculateMean(inputArrayNums);
+    let stdOfArray = calculateStandardDeviation(inputArrayNums);
+
+    for(let i =0; i < inputArrayNums.length; i++){
+
+        let currentStandardizedElement = (inputArrayNums[i] - meanOfArray)/(stdOfArray);
+        standardizedArray.push(currentStandardizedElement);
+    }
+
+    return standardizedArray;
+
+}
+
 
 
 

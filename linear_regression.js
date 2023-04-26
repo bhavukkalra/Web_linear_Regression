@@ -14,6 +14,7 @@ First We need to Normalize the Data
 Normalization (Min-Max Scaler) - Scale down the features between [0, 1]
 
 Standardization - Makes mean = 0 and standard deviation = 1
+Formula - ((x - mean)/(std)) 
 
 */
 
@@ -23,7 +24,7 @@ Standardization - Makes mean = 0 and standard deviation = 1
 // Task 2 (Pre) - handle Taking input from the Whole Table
 // Task 2 - Calculate standard deviation
 
-import { calculateMean, calculateStandardDeviation } from "./helpherFunctions.js";
+import { calculateMean, calculateStandardDeviation, standardizeInputArray } from "./helpherFunctions.js";
 
 
 let XHoursVals = []
@@ -104,10 +105,6 @@ function takeInput(){
 
     }
 
-    
-
-
-
     /*
     Below snippet renders the input on 
     the HTML Page
@@ -120,8 +117,10 @@ function takeInput(){
     spanHTMLElementPerf.innerHTML = YPerfVals;
 
     // calculateMean(XHoursVals);
-    console.log("Operating on - ", XHoursValsNum)
-    calculateStandardDeviation(XHoursValsNum);
+    // console.log("Operating on - ", XHoursValsNum)
+    // calculateStandardDeviation(XHoursValsNum);
+
+    let stdArrayX = standardizeInputArray(XHoursValsNum);
 
 }
 
