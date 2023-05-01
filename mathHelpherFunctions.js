@@ -96,7 +96,7 @@ export function calSqrRootBabylonianFormula(inputNumber){
     Makes Mean = 0, std = 1
     Formula - (x - mean)/(std)
 
-    Used on the Input features only(X)
+    Used on the Input features only - (X)
 
 */
 

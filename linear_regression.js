@@ -24,7 +24,8 @@ Formula - ((x - mean)/(std))
 // Task 2 (Pre) - handle Taking input from the Whole Table
 // Task 2 - Calculate standard deviation
 
-import { calculateMean, calculateStandardDeviation, standardizeInputArray } from "./helpherFunctions.js";
+import { calculateMean, calculateStandardDeviation, standardizeInputArray } from "./mathHelpherFunctions.js";
+import { gradient } from "./linearRegressionHelperFunctions.js";
 
 
 let XHoursVals = []
@@ -120,7 +121,11 @@ function takeInput(){
     // console.log("Operating on - ", XHoursValsNum)
     // calculateStandardDeviation(XHoursValsNum);
 
-    let stdArrayX = standardizeInputArray(XHoursValsNum);
+    // let stdArrayX = standardizeInputArray(XHoursValsNum);
+
+    let temp_theta = [0, 0];
+    let current_slope = gradient(XHoursValsNum, YPerfValsNum, temp_theta);
+    console.log("current_slope", current_slope)
 
 }
 
