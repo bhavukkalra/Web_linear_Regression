@@ -25,7 +25,7 @@ Formula - ((x - mean)/(std))
 // Task 2 - Calculate standard deviation
 
 import { calculateMean, calculateStandardDeviation, standardizeInputArray } from "./mathHelpherFunctions.js";
-import { gradient } from "./linearRegressionHelperFunctions.js";
+import { gradient, gradientDescent } from "./linearRegressionHelperFunctions.js";
 
 
 let XHoursVals = []
@@ -124,8 +124,19 @@ function takeInput(){
     // let stdArrayX = standardizeInputArray(XHoursValsNum);
 
     let temp_theta = [0, 0];
-    let current_slope = gradient(XHoursValsNum, YPerfValsNum, temp_theta);
-    console.log("current_slope", current_slope)
+    // let current_slope = gradient(XHoursValsNum, YPerfValsNum, temp_theta);
+    // console.log("current_slope", current_slope)
+
+    let return_values = gradientDescent(XHoursValsNum, YPerfValsNum);
+    console.log("return_values", return_values);
+
+    console.log("return_values[theta]", return_values["theta"]);
+    console.log("return_values[error_list]", return_values["error_list"]);
+
+
+
+
+
 
 }
 

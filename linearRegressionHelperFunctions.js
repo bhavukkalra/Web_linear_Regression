@@ -105,3 +105,86 @@ export function gradient(X, Y, theta){
     
 
 }
+
+/*
+@params
+
+X - 1D Input array [...]
+Y - 1D input array [...]
+
+theta - An array containing two elements,
+        the weight vector for the best fit line
+        
+[theta0, theta1]
+
+
+@summary
+
+calculates the current error 
+(based on the values of theta)
+
+
+
+*/
+
+
+
+export function error(X, Y, theta){
+    let m = X.length;
+
+    let total_error = 0.0;
+
+    for(let i = 0; i < m; i++){
+        let y_hat = hypothesis(X[i], theta);
+
+        total_error += (y_hat - Y[i]) * (y_hat - Y[i]);
+    }
+
+    return total_error/m;
+
+}
+
+/*
+TODO - Find out if a call back function can be passed to this.
+It will work as a template function, that will run after the main function has finished executing
+
+*/
+
+/*
+@params
+
+
+
+
+
+*/
+
+export function gradientDescent(X, Y, max_steps = 10, learning_rate = 0.1, render_error = null){
+    let theta = [0, 0]
+    let error_list = []
+
+
+    for(let i = 0; i < max_steps; i++){
+
+        // compute grad 
+        let grad = gradient(X, Y, theta);
+
+        let e_current = error(X, Y, theta);
+
+        /*
+            TODO - instead of pushing maybe directly render 
+            these error values on the page
+
+        */
+        error_list.push(e_current);
+
+
+        // update theta
+
+        theta[0] = theta[0] - learning_rate* grad[0];
+        theta[1] = theta[1] - learning_rate* grad[1];
+        
+    }
+
+    return {theta, error_list};
+}
